@@ -10,7 +10,9 @@ tags: [web]
 
 Sau khi đọc source và biết được backend là flask jinja 2 thì có thể đoán luôn được là bài này bị dính SSTI, giờ tìm cách bypass black list và white list của bài thôi.
 
-Lên payload all the things chọn một payload thuộc phần read remote file: `{{get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read()}}`
+Lên payload all the things chọn một payload thuộc phần read remote file: 
+
+{{get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read()}}
 
 Sửa file `/etc/passwd` thành `[app.py](http://app.py)` để đọc thử thì thấy kết quả trả về đúng là nội dung file. Giờ thì sẽ làm sao để có thể in ra được nội dung của file `flag.txt`  vì từ `flag` đã nằm trong blacklist
 
@@ -18,7 +20,9 @@ Sửa file `/etc/passwd` thành `[app.py](http://app.py)` để đọc thử th�
 
 Đến đây thì ta phải dùng hàm `join()` của python để nối chuỗi lại với nhau tạo thành tên file `flag.txt`.
 
-Payload: `{{get_flashed_messages.__globals__.__builtins__.open("lag.tx".join("ft")).read()}}`
+Payload: 
+
+{{get_flashed_messages.__globals__.__builtins__.open("lag.tx".join("ft")).read()}}
 
 Flag: **`FLAG{did-you-really-understand-ssti??}`**
 
