@@ -12,7 +12,7 @@ Sau khi đọc source và biết được backend là flask jinja 2 thì có th�
 
 Lên payload all the things chọn một payload thuộc phần read remote file: 
 
-`{{ get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read() }}`
+![Untitled](/assets/img/img-wu/AutumnCTFISP/Untitled%2011.png)
 
 Sửa file `/etc/passwd` thành `[app.py](http://app.py)` để đọc thử thì thấy kết quả trả về đúng là nội dung file. Giờ thì sẽ làm sao để có thể in ra được nội dung của file `flag.txt`  vì từ `flag` đã nằm trong blacklist
 
@@ -22,7 +22,7 @@ Sửa file `/etc/passwd` thành `[app.py](http://app.py)` để đọc thử th�
 
 Payload: 
 
-`{{ get_flashed_messages.__globals__.__builtins__.open("lag.tx".join("ft")).read() }}`
+![Untitled](/assets/img/img-wu/AutumnCTFISP/Untitled%2012.png)
 
 Flag: **`FLAG{did-you-really-understand-ssti??}`**
 
